@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Misc
+*.log
+Thumbs.db
+
+# CV — kept OUT of git for now because it contains a home address & phone number.
+# The site links to assets/cv.pdf; once you provide a privacy-redacted CV,
+# remove these two lines and commit it.
+Yuepeng_s_CV.pdf
+assets/cv.pdf
