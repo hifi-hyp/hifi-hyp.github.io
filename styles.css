@@ -204,7 +204,7 @@ a.pub-thumb { transition: box-shadow .16s ease; }
   padding: 14px 0; border-bottom: 1px solid var(--border);
 }
 .timeline li:last-child { border-bottom: none; }
-.timeline-main { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
+.timeline-main { display: flex; flex-direction: column; gap: 3px; }
 .role { font-weight: 600; }
 .org { color: var(--muted); }
 .timeline-meta { color: var(--muted); font-family: var(--mono); font-size: 0.82rem; white-space: nowrap; }
