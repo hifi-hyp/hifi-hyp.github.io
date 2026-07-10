@@ -208,7 +208,6 @@ a.pub-thumb { transition: box-shadow .16s ease; }
 .role { font-weight: 600; }
 .org { color: var(--muted); }
 .timeline-meta { color: var(--muted); font-family: var(--mono); font-size: 0.82rem; white-space: nowrap; }
-.timeline-desc { grid-column: 1 / -1; margin: 4px 0 0; color: var(--muted); font-size: 0.95rem; }
 
 /* ---------- Footer ---------- */
 .footer {
