@@ -9,8 +9,6 @@
 *.log
 Thumbs.db
 
-# CV — kept OUT of git for now because it contains a home address & phone number.
-# The site links to assets/cv.pdf; once you provide a privacy-redacted CV,
-# remove these two lines and commit it.
+# Original CV kept OUT of git — it contains a home address & phone number.
+# The published CV (assets/cv.pdf) is a redacted copy with those details removed.
 Yuepeng_s_CV.pdf
-assets/cv.pdf
