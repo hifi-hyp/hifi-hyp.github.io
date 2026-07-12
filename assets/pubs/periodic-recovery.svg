@@ -1,6 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" fill="none">
-  <rect width="320" height="200" fill="#eef1f7"/>
-  <circle cx="284" cy="26" r="54" fill="#f0e4cd" opacity="0.7"/>
-  <circle cx="34" cy="186" r="30" fill="#e2e7f0" opacity="0.8"/>
-  <g transform="translate(114.4,54.4) scale(3.8)" stroke="#334155" stroke-width="1.05" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M4 12a8 8 0 0 1 13.7-5.6L20 9"/><path d="M20 4.5V9h-4.5"/><path d="M20 12a8 8 0 0 1-13.7 5.6L4 15"/><path d="M4 19.5V15h4.5"/></g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="sans-serif">
+    <rect width="800" height="500" fill="#f8fafc" />
+    <text x="400" y="60" text-anchor="middle" font-size="28" font-weight="bold" fill="#0f172a">Periodic Recovery Mechanism</text>
+    
+    <!-- Timeline -->
+    <line x1="100" y1="250" x2="700" y2="250" stroke="#cbd5e1" stroke-width="6" stroke-dasharray="10, 10"/>
+    
+    <!-- Circles and Labels -->
+    <!-- Epoch 1 -->
+    <circle cx="200" cy="250" r="25" fill="#3b82f6" stroke="#1e40af" stroke-width="4"/>
+    <text x="200" y="300" text-anchor="middle" font-size="18" fill="#334155" font-weight="bold">Checkpoint T1</text>
+    
+    <!-- Attack -->
+    <circle cx="350" cy="250" r="20" fill="#ef4444"/>
+    <text x="350" y="210" text-anchor="middle" font-size="18" fill="#ef4444" font-weight="bold">Poisoning Attack</text>
+    <line x1="350" y1="215" x2="350" y2="230" stroke="#ef4444" stroke-width="3" marker-end="url(#arrow-red)"/>
+    
+    <!-- Epoch 2 (Compromised) -->
+    <circle cx="450" cy="250" r="25" fill="#f59e0b" stroke="#b45309" stroke-width="4"/>
+    <text x="450" y="300" text-anchor="middle" font-size="18" fill="#b45309" font-weight="bold">Degraded State</text>
+    
+    <!-- Recovery to Epoch 3 -->
+    <path d="M 450 180 Q 525 100 600 180" fill="none" stroke="#10b981" stroke-width="4" marker-end="url(#arrow-green)"/>
+    <text x="525" y="130" text-anchor="middle" font-size="18" fill="#10b981" font-weight="bold">Periodic Recovery</text>
+    
+    <circle cx="600" cy="250" r="25" fill="#10b981" stroke="#047857" stroke-width="4"/>
+    <text x="600" y="300" text-anchor="middle" font-size="18" fill="#047857" font-weight="bold">Restored T2</text>
+    
+    <defs>
+        <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#ef4444"/>
+        </marker>
+        <marker id="arrow-green" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981"/>
+        </marker>
+    </defs>
 </svg>

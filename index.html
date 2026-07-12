@@ -57,7 +57,17 @@
     ]
   }
   </script>
+
+  <!-- Theme script (prevent FOUC) -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+      else if (window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.setAttribute('data-theme', 'dark');
+    })();
+  </script>
 </head>
+
 
 <body>
   <a class="skip-link" href="#about">Skip to content</a>
@@ -66,13 +76,27 @@
 
     <!-- ============================= TOP BAR ============================= -->
     <header class="topbar">
-      <a class="brand" href="#top">Yuepeng Hu</a>
+      <a class="brand" href="index.html">Yuepeng Hu's Homepage</a>
       <nav class="topnav" aria-label="Sections">
         <a href="#about">About</a>
-        <a href="#experience">Experience</a>
+        <a href="#experience">Industry Exp.</a>
         <a href="#education">Education</a>
         <a href="#publications">Publications</a>
-        <a href="assets/cv.pdf" target="_blank" rel="noopener">CV</a>
+        
+        <a href="assets/cv.pdf?v=1783834702" target="_blank" rel="noopener noreferrer" aria-label="Curriculum Vitae" title="View/Download CV" class="social-cv-btn"><svg viewBox="0 0 24 24" aria-hidden="true">
+  <defs>
+    <mask id="cv-cutout">
+      <rect width="24" height="24" fill="white" />
+      <text x="12" y="16" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="800" fill="black" text-anchor="middle" letter-spacing="0.5">CV</text>
+    </mask>
+  </defs>
+  <rect x="2" y="2" width="20" height="20" rx="4" fill="currentColor" mask="url(#cv-cutout)"/>
+</svg></a>
+        <button class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+          <svg class="sun-icon" viewBox="0 0 24 24"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18.75a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25a.75.75 0 01.75-.75zM6.166 17.834a.75.75 0 001.06 1.06l1.591-1.59a.75.75 0 10-1.06-1.061l-1.591 1.59zM4.5 12a.75.75 0 01-.75.75H1.5a.75.75 0 010-1.5h2.25a.75.75 0 01.75.75zM6.166 6.166a.75.75 0 010 1.06l-1.59 1.591a.75.75 0 11-1.061-1.06l1.59-1.591a.75.75 0 011.06 0z" /></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24"><path d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" /></svg>
+        </button>
+
       </nav>
     </header>
 
@@ -80,7 +104,7 @@
 
       <!-- ============================= SIDEBAR ============================= -->
       <aside class="sidebar">
-        <img class="avatar" src="assets/profile.jpg" alt="Yuepeng Hu" width="208" height="208" fetchpriority="high" />
+        <img class="avatar" src="assets/profile.jpg" alt="Yuepeng Hu" width="208" height="208" fetchpriority="high" loading="eager" />
         <h1 class="name">Yuepeng Hu</h1>
         <p class="title">Ph.D. Candidate · AI Security</p>
         <p class="affil">Duke University</p>
@@ -88,20 +112,26 @@
 
         <nav class="socials" aria-label="Profiles and contact">
           <a href="mailto:yuepeng.hu@duke.edu" aria-label="Email" title="Email">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A2.5 2.5 0 0 1 4.5 3h15A2.5 2.5 0 0 1 22 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 18.5v-13Zm2.2-.5 7.05 5.28a1.25 1.25 0 0 0 1.5 0L19.8 5H4.2ZM20 6.75l-6.55 4.9a3.25 3.25 0 0 1-3.9 0L3 6.75V18.5c0 .28.22.5.5.5h15a.5.5 0 0 0 .5-.5V6.75Z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"/><path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"/></svg>
           </a>
-          <a href="https://scholar.google.com/citations?user=U6yjgosAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar">
+          <a href="https://scholar.google.com/citations?user=U6yjgosAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar" title="Google Scholar">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 1 8l11 6 9-4.909V17h2V8L12 2ZM5 13.18v3.32C5 18.43 8.13 20 12 20s7-1.57 7-3.5v-3.32l-7 3.82-7-3.82Z"/></svg>
           </a>
-          <a href="https://github.com/hifi-hyp" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+          <a href="https://github.com/hifi-hyp" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.69 5.4-5.26 5.68.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
           </a>
-          <a href="https://www.linkedin.com/in/yuepeng-hu-1720a9369/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+          <a href="https://www.linkedin.com/in/yuepeng-hu-1720a9369/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></svg>
           </a>
-          <a href="assets/cv.pdf" target="_blank" rel="noopener" aria-label="Curriculum Vitae" title="CV">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1.5V8a1 1 0 0 0 1 1h4.5L13 3.5ZM8 13h8v1.5H8V13Zm0 3.5h5V18H8v-1.5Z"/></svg>
-          </a>
+          <a href="assets/cv.pdf?v=1783834702" target="_blank" rel="noopener noreferrer" aria-label="Curriculum Vitae" title="View/Download CV" class="social-cv-btn"><svg viewBox="0 0 24 24" aria-hidden="true">
+  <defs>
+    <mask id="cv-cutout">
+      <rect width="24" height="24" fill="white" />
+      <text x="12" y="16" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="800" fill="black" text-anchor="middle" letter-spacing="0.5">CV</text>
+    </mask>
+  </defs>
+  <rect x="2" y="2" width="20" height="20" rx="4" fill="currentColor" mask="url(#cv-cutout)"/>
+</svg></a>
         </nav>
 
         <div class="card interests">
@@ -123,39 +153,37 @@
           <h2>About</h2>
           <p>
             I am a fourth-year Ph.D. candidate in Electrical &amp; Computer Engineering at
-            <strong>Duke University</strong>, advised by Prof. Neil Gong. My research studies the
+            <strong>Duke University</strong>, advised by <a href="https://people.duke.edu/~zg70/" target="_blank" rel="noopener noreferrer">Prof. Neil Gong</a>. My research studies the
             security and safety of generative AI &mdash; spanning LLM agents and prompt injection,
             watermarking and detection of AI-generated content, safety of (multimodal) large language
             models, and trustworthy machine learning.
           </p>
           <p>
             I am currently a Research Scientist Intern at <strong>Meta Superintelligence Labs</strong>,
-            where I study reward hacking in RL-trained coding agents. Previously, I interned at TikTok
-            Privacy Innovation Labs. I received my B.S. in Data Science from the University of Science
-            and Technology of China (USTC).
+            where I study reward hacking in RL-trained coding agents. Previously, I was a Research Scientist Intern at <strong>TikTok Privacy Innovation Labs</strong>. I received my B.S. in Data Science from the <strong>University of Science
+            and Technology of China (USTC)</strong>.
           </p>
           <p>
-            I am actively looking for full-time research scientist / applied scientist opportunities in
-            AI security and trustworthy ML &mdash; please feel free to
-            <a href="mailto:yuepeng.hu@duke.edu">reach out</a>.
+            I am actively seeking full-time opportunities &mdash; please feel free to
+            <a href="mailto:yuepeng.hu@duke.edu" id="reach-out-email" title="Click to copy email">reach out</a>.
           </p>
         </section>
 
         <!-- ---------- Experience ---------- -->
         <section id="experience" class="section">
-          <h2>Experience</h2>
+          <h2>Industry Experience</h2>
           <ul class="timeline">
             <li>
               <div class="timeline-main">
                 <span class="role">Research Scientist Intern</span>
-                <span class="org">Meta Superintelligence Labs &middot; Bellevue, WA</span>
+                <span class="org"><img class="org-logo" src="https://www.google.com/s2/favicons?domain=meta.com&sz=128" alt="Meta">Meta Superintelligence Labs &middot; Bellevue, WA</span>
               </div>
               <div class="timeline-meta">May 2026 – Present</div>
             </li>
             <li>
               <div class="timeline-main">
                 <span class="role">Research Scientist Intern</span>
-                <span class="org">TikTok Privacy Innovation Labs &middot; San Jose, CA</span>
+                <span class="org"><img class="org-logo" src="https://www.google.com/s2/favicons?domain=tiktok.com&sz=128" alt="TikTok">TikTok Privacy Innovation Labs &middot; San Jose, CA</span>
               </div>
               <div class="timeline-meta">May 2025 – Aug 2025</div>
             </li>
@@ -169,16 +197,16 @@
             <li>
               <div class="timeline-main">
                 <span class="role">Ph.D. in Electrical &amp; Computer Engineering</span>
-                <span class="org">Duke University</span>
+                <span class="org"><img class="org-logo seal-logo" src="assets/duke-seal.svg" alt="Duke Seal">Duke University</span>
               </div>
-              <div class="timeline-meta">2022 – Present</div>
+              <div class="timeline-meta">Aug 2022 – Present</div>
             </li>
             <li>
               <div class="timeline-main">
                 <span class="role">B.S. in Data Science</span>
-                <span class="org">University of Science and Technology of China (USTC)</span>
+                <span class="org"><img class="org-logo seal-logo" src="assets/ustc-seal.svg" alt="USTC Seal">University of Science and Technology of China (USTC)</span>
               </div>
-              <div class="timeline-meta">2018 – 2022</div>
+              <div class="timeline-meta">Aug 2018 – Jun 2022</div>
             </li>
           </ul>
         </section>
@@ -192,8 +220,8 @@
             <li><time>2026.01</time><span>&ldquo;Watermark-Based Detection and Attribution of AI-Generated Content&rdquo; accepted to <strong>ICLR 2026</strong>.</span></li>
             <li><time>2025.12</time><span>&ldquo;Jailbreaking Safeguarded Text-to-Image Models via LLMs&rdquo; accepted to <strong>EACL 2026</strong> (Findings).</span></li>
             <li><time>2025.08</time><span>&ldquo;WebInject: Prompt Injection Attack to Web Agents&rdquo; accepted to <strong>EMNLP 2025</strong> (Main).</span></li>
-            <li><time>2025.05</time><span>Started an internship at <strong>TikTok Privacy Innovation Labs</strong> (San Jose, CA).</span></li>
-            <li><time>2025.03</time><span>&ldquo;Periodic Recovery from Poisoning Attacks in Machine Learning&rdquo; accepted to <strong>IEEE TDSC</strong>.</span></li>
+            <li><time>2025.05</time><span>Started as a Research Scientist Intern at <strong>TikTok Privacy Innovation Labs</strong> (San Jose, CA).</span></li>
+            <li><time>2025.03</time><span>&ldquo;Periodic Recovery from Poisoning Attacks in Machine Learning&rdquo; accepted to <strong>IEEE TDSC</strong> (IEEE Transactions on Dependable and Secure Computing).</span></li>
             <li><time>2025.01</time><span>&ldquo;A Transfer Attack to Image Watermarks&rdquo; accepted to <strong>ICLR 2025</strong>.</span></li>
           </ul>
         </section>
@@ -206,62 +234,71 @@
           </div>
           <p class="hint"><em>* denotes equal contribution &middot; my name in <strong>bold</strong>.</em></p>
 
-          <article class="pub">
-            <a class="pub-thumb" href="https://arxiv.org/abs/2509.25448" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/pubs/fingerprinting-llms.jpg" alt="" loading="lazy" width="160" height="100" /></a>
+          
+          
+<article class="pub pub-wrap" data-category="llm">
+            <a class="pub-thumb" href="https://arxiv.org/abs/2509.25448" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img src="assets/pubs/fingerprinting-llms.jpg" alt="" loading="lazy" width="110" height="68" /></a>
             <div class="pub-body">
-              <h3 class="pub-title"><a href="https://arxiv.org/abs/2509.25448" target="_blank" rel="noopener">Fingerprinting LLMs via Prompt Injection</a></h3>
+              <h3 class="pub-title"><a href="https://arxiv.org/abs/2509.25448" target="_blank" rel="noopener noreferrer">Fingerprinting LLMs via Prompt Injection</a> <span class="tag tag-title">ORAL</span></h3>
               <p class="pub-authors"><strong>Yuepeng Hu</strong>, Zhengyuan Jiang, Mengyuan Li, Osama Ahmed, Zhicong Huang, Cheng Hong, Neil Gong</p>
-              <p class="pub-venue">Annual Meeting of the Association for Computational Linguistics (ACL), 2026 &middot; <span class="tag">Oral</span></p>
-              <p class="pub-links"><a href="https://arxiv.org/abs/2509.25448" target="_blank" rel="noopener">arXiv</a> <a href="https://github.com/hifi-hyp/ACL-LLMPrint" target="_blank" rel="noopener">Code</a></p>
+              <p class="pub-venue"><strong>ACL</strong> (Annual Meeting of the Association for Computational Linguistics), 2026</p>
+              <p class="pub-links"><a href="https://arxiv.org/abs/2509.25448" target="_blank" rel="noopener noreferrer">arXiv</a> <a href="https://github.com/hifi-hyp/ACL-LLMPrint" target="_blank" rel="noopener noreferrer">Code</a>  <button class="tldr-toggle" aria-expanded="false">TL;DR <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button></p>
+              <div class="pub-desc-wrap"><div class="pub-desc-inner"><p class="pub-desc">Proposes a prompt injection technique to uniquely fingerprint and track large language models.</p></div></div>
             </div>
           </article>
 
-          <article class="pub">
-            <a class="pub-thumb" href="https://arxiv.org/abs/2602.12194" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/pubs/maltool.jpg" alt="" loading="lazy" width="160" height="100" /></a>
+          <article class="pub pub-wrap" data-category="llm">
+            <a class="pub-thumb" href="https://arxiv.org/abs/2602.12194" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img src="assets/pubs/maltool.jpg" alt="" loading="lazy" width="110" height="68" /></a>
             <div class="pub-body">
-              <h3 class="pub-title"><a href="https://arxiv.org/abs/2602.12194" target="_blank" rel="noopener">MalTool: Malicious Tool Attacks on LLM Agents</a></h3>
+              <h3 class="pub-title"><a href="https://arxiv.org/abs/2602.12194" target="_blank" rel="noopener noreferrer">MalTool: Malicious Tool Attacks on LLM Agents</a></h3>
               <p class="pub-authors"><strong>Yuepeng Hu</strong>, Yuqi Jia, Mengyuan Li, Dawn Song, Neil Gong</p>
-              <p class="pub-venue">Preprint, 2026</p>
-              <p class="pub-links"><a href="https://arxiv.org/abs/2602.12194" target="_blank" rel="noopener">arXiv</a></p>
+              <p class="pub-venue"><strong>Preprint</strong>, 2026</p>
+              <p class="pub-links"><a href="https://arxiv.org/abs/2602.12194" target="_blank" rel="noopener noreferrer">arXiv</a>  <button class="tldr-toggle" aria-expanded="false">TL;DR <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button></p>
+              <div class="pub-desc-wrap"><div class="pub-desc-inner"><p class="pub-desc">Investigates vulnerabilities in LLM agents when interacting with external tools, demonstrating malicious tool-based attacks.</p></div></div>
             </div>
           </article>
 
-          <article class="pub">
-            <a class="pub-thumb" href="https://arxiv.org/abs/2403.15365" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/pubs/transfer-attack-watermarks.jpg" alt="" loading="lazy" width="160" height="100" /></a>
+          <article class="pub pub-wrap" data-category="watermark">
+            <a class="pub-thumb" href="https://arxiv.org/abs/2403.15365" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img src="assets/pubs/transfer-attack-watermarks.jpg" alt="" loading="lazy" width="110" height="68" /></a>
             <div class="pub-body">
-              <h3 class="pub-title"><a href="https://arxiv.org/abs/2403.15365" target="_blank" rel="noopener">A Transfer Attack to Image Watermarks</a></h3>
+              <h3 class="pub-title"><a href="https://arxiv.org/abs/2403.15365" target="_blank" rel="noopener noreferrer">A Transfer Attack to Image Watermarks</a></h3>
               <p class="pub-authors"><strong>Yuepeng Hu</strong>, Zhengyuan Jiang, Moyang Guo, Neil Gong</p>
-              <p class="pub-venue">International Conference on Learning Representations (ICLR), 2025</p>
-              <p class="pub-links"><a href="https://arxiv.org/abs/2403.15365" target="_blank" rel="noopener">arXiv</a> <a href="https://github.com/hifi-hyp/Watermark-Transfer-Attack" target="_blank" rel="noopener">Code</a></p>
+              <p class="pub-venue"><strong>ICLR</strong> (International Conference on Learning Representations), 2025</p>
+              <p class="pub-links"><a href="https://arxiv.org/abs/2403.15365" target="_blank" rel="noopener noreferrer">arXiv</a> <a href="https://github.com/hifi-hyp/Watermark-Transfer-Attack" target="_blank" rel="noopener noreferrer">Code</a>  <button class="tldr-toggle" aria-expanded="false">TL;DR <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button></p>
+              <div class="pub-desc-wrap"><div class="pub-desc-inner"><p class="pub-desc">Demonstrates cross-model transferability of attacks against image watermarks, highlighting fundamental robustness issues.</p></div></div>
             </div>
           </article>
 
-          <article class="pub">
-            <a class="pub-thumb" href="https://arxiv.org/abs/2502.20623" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/pubs/safetext.svg" alt="" loading="lazy" width="160" height="100" /></a>
+          <article class="pub pub-wrap" data-category="trustworthy">
+            <a class="pub-thumb" href="https://arxiv.org/abs/2502.20623" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img src="assets/pubs/safetext.png?v=5" alt="" loading="lazy" width="110" height="68" /></a>
             <div class="pub-body">
-              <h3 class="pub-title"><a href="https://arxiv.org/abs/2502.20623" target="_blank" rel="noopener">SafeText: Safe Text-to-Image Models via Aligning the Text Encoder</a></h3>
+              <h3 class="pub-title"><a href="https://arxiv.org/abs/2502.20623" target="_blank" rel="noopener noreferrer">SafeText: Safe Text-to-Image Models via Aligning the Text Encoder</a></h3>
               <p class="pub-authors"><strong>Yuepeng Hu</strong>, Zhengyuan Jiang, Neil Gong</p>
-              <p class="pub-venue">Preprint, 2025</p>
-              <p class="pub-links"><a href="https://arxiv.org/abs/2502.20623" target="_blank" rel="noopener">arXiv</a></p>
+              <p class="pub-venue"><strong>Preprint</strong>, 2025</p>
+              <p class="pub-links"><a href="https://arxiv.org/abs/2502.20623" target="_blank" rel="noopener noreferrer">arXiv</a>  <button class="tldr-toggle" aria-expanded="false">TL;DR <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button></p>
+              <div class="pub-desc-wrap"><div class="pub-desc-inner"><p class="pub-desc">Aligns the text encoder to inherently reject unsafe prompts, improving the safety of text-to-image generation.</p></div></div>
             </div>
           </article>
 
-          <article class="pub">
-            <a class="pub-thumb" href="https://doi.org/10.1109/TDSC.2025.3560239" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/pubs/periodic-recovery.svg" alt="" loading="lazy" width="160" height="100" /></a>
+          <article class="pub pub-wrap" data-category="trustworthy">
+            <a class="pub-thumb" href="https://doi.org/10.1109/TDSC.2025.3560239" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img src="assets/pubs/periodic-recovery.png?v=5" alt="" loading="lazy" width="110" height="68" /></a>
             <div class="pub-body">
-              <h3 class="pub-title"><a href="https://doi.org/10.1109/TDSC.2025.3560239" target="_blank" rel="noopener">Periodic Recovery from Poisoning Attacks in Machine Learning</a></h3>
+              <h3 class="pub-title"><a href="https://doi.org/10.1109/TDSC.2025.3560239" target="_blank" rel="noopener noreferrer">Periodic Recovery from Poisoning Attacks in Machine Learning</a></h3>
               <p class="pub-authors"><strong>Yuepeng Hu</strong>, Minghong Fang, Yuqi Jia, Hongbin Liu, Neil Gong</p>
-              <p class="pub-venue">IEEE Transactions on Dependable and Secure Computing (TDSC), 2025</p>
-              <p class="pub-links"><a href="https://doi.org/10.1109/TDSC.2025.3560239" target="_blank" rel="noopener">IEEE</a> <a href="https://github.com/hifi-hyp/PeriRecover" target="_blank" rel="noopener">Code</a></p>
+              <p class="pub-venue"><strong>IEEE TDSC</strong> (IEEE Transactions on Dependable and Secure Computing), 2025</p>
+              <p class="pub-links"><a href="https://doi.org/10.1109/TDSC.2025.3560239" target="_blank" rel="noopener noreferrer">IEEE</a> <a href="https://github.com/hifi-hyp/PeriRecover" target="_blank" rel="noopener noreferrer">Code</a>  <button class="tldr-toggle" aria-expanded="false">TL;DR <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button></p>
+              <div class="pub-desc-wrap"><div class="pub-desc-inner"><p class="pub-desc">Proposes a defensive mechanism that periodically recovers ML models to mitigate the impact of data poisoning.</p></div></div>
             </div>
           </article>
 
-          <article class="pub">
-            <span class="pub-thumb"><img src="assets/pubs/cardiac-mri.svg" alt="" loading="lazy" width="160" height="100" /></span>
+          <article class="pub pub-wrap" data-category="other">
+            <span class="pub-thumb"><img src="assets/pubs/cardiac-mri.png?v=5" alt="" loading="lazy" width="110" height="68" /></span>
             <div class="pub-body">
-              <h3 class="pub-title">Screening and Diagnosis of Cardiovascular Disease Using AI-Enabled Cardiac MRI</h3>
+              <h3 class="pub-title"><a href="https://www.nature.com/articles/s41591-024-02971-2" target="_blank" rel="noopener noreferrer">Screening and Diagnosis of Cardiovascular Disease Using AI-Enabled Cardiac MRI</a></h3>
               <p class="pub-authors">Yan-Ran Wang, Kai Yang, Yi Wen*, Pengcheng Wang*, <strong>Yuepeng Hu*</strong>, et al.</p>
-              <p class="pub-venue">Nature Medicine</p>
+              <p class="pub-venue"><strong>Nature Medicine</strong></p>
+              <p class="pub-links"><a href="https://www.nature.com/articles/s41591-024-02971-2" target="_blank" rel="noopener noreferrer">Nature</a> <button class="tldr-toggle" aria-expanded="false">TL;DR <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button></p>
+              <div class="pub-desc-wrap"><div class="pub-desc-inner"><p class="pub-desc">Applies deep learning techniques to cardiac MRI for automated and accurate cardiovascular disease diagnosis.</p></div></div>
             </div>
           </article>
         </section>
@@ -292,5 +329,198 @@
       Object.keys(map).forEach(function (id) { var el = document.getElementById(id); if (el) obs.observe(el); });
     })();
   </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+            setTimeout(() => {
+              entry.target.classList.remove('reveal-init', 'reveal-animate', 'reveal-visible');
+            }, 800);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+      
+      // Copy email to clipboard on click (for 'reach out' text)
+      const emailLink = document.getElementById('reach-out-email');
+      if (emailLink) {
+        emailLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          navigator.clipboard.writeText('yuepeng.hu@duke.edu').then(() => {
+            const originalText = emailLink.innerText;
+            emailLink.innerText = 'copied!';
+            emailLink.style.color = '#10b981'; // success green
+            setTimeout(() => {
+              emailLink.innerText = originalText;
+              emailLink.style.color = '';
+            }, 1500);
+          });
+        });
+      }
+
+      
+      // Theme Toggle Logic
+      const themeToggle = document.querySelector('.theme-toggle');
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          const currentTheme = document.documentElement.getAttribute('data-theme');
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+        });
+      }
+
+      // Topbar sticky scroll effect
+      const topbar = document.querySelector('.topbar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) topbar.classList.add('scrolled');
+        else topbar.classList.remove('scrolled');
+      });
+
+      
+      // TL;DR Toggle Logic
+      document.querySelectorAll('.tldr-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const wrap = btn.parentElement.nextElementSibling;
+          const isExpanded = wrap.classList.contains('expanded');
+          
+          if (isExpanded) {
+            wrap.classList.remove('expanded');
+            btn.classList.remove('expanded');
+            btn.setAttribute('aria-expanded', 'false');
+          } else {
+            wrap.classList.add('expanded');
+            btn.classList.add('expanded');
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+
+      // Publication Filtering
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const pubs = document.querySelectorAll('.pub-wrap');
+      
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.getAttribute('data-filter');
+          
+          pubs.forEach(pub => {
+            // Hardcode height for smooth transition if needed, or let CSS flex handle it.
+            // CSS scale and opacity handles the visual, height:0 handles the layout.
+            if (filter === 'all' || pub.getAttribute('data-category') === filter) {
+              pub.classList.remove('hidden-filter');
+              // Ensure intersection observer doesn't hide it
+              pub.classList.remove('reveal-init', 'reveal-animate');
+              pub.classList.add('reveal-visible');
+            } else {
+              pub.classList.add('hidden-filter');
+            }
+          });
+        });
+      });
+
+      const selectors = '.section, .pub, .interests, .card';
+      document.querySelectorAll(selectors).forEach(el => {
+        el.classList.add('reveal-init', 'reveal-animate');
+        observer.observe(el);
+      });
+    });
+  </script>
+
+  
+  <!-- Particle Background Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const canvas = document.createElement('canvas');
+      canvas.id = 'tech-particles';
+      document.body.insertBefore(canvas, document.body.firstChild);
+      
+      const ctx = canvas.getContext('2d');
+      let width, height, particles = [];
+
+      function init() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+      
+      class Particle {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.vx = (Math.random() - 0.5) * 0.5;
+          this.vy = (Math.random() - 0.5) * 0.5;
+          this.radius = Math.random() * 1.5 + 0.5;
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          if (this.x < 0 || this.x > width) this.vx = -this.vx;
+          if (this.y < 0 || this.y > height) this.vy = -this.vy;
+        }
+        draw() {
+          const style = getComputedStyle(document.body);
+          const rawAccent = style.getPropertyValue('--accent-rgb').trim() || '37, 99, 235';
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${rawAccent}, 0.5)`;
+          ctx.fill();
+        }
+      }
+
+      function createParticles() {
+        particles = [];
+        const isMobile = window.innerWidth < 768;
+        const numParticles = isMobile ? Math.floor(window.innerWidth / 30) : Math.min(Math.floor(window.innerWidth / 15), 100);
+        for (let i = 0; i < numParticles; i++) particles.push(new Particle());
+      }
+
+      function animate() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        
+        ctx.clearRect(0, 0, width, height);
+        const style = getComputedStyle(document.body);
+        const rawAccent = style.getPropertyValue('--accent-rgb').trim() || '37, 99, 235';
+        
+        particles.forEach(p => {
+          p.update();
+          p.draw();
+        });
+        
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 120) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(${rawAccent}, ${0.15 * (1 - dist/120)})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+
+      init();
+      createParticles();
+      animate();
+
+      window.addEventListener('resize', () => {
+        init();
+        createParticles();
+      });
+    });
+  </script>
+
+
 </body>
+
 </html>

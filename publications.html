@@ -26,165 +26,201 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Theme script (prevent FOUC) -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+      else if (window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.setAttribute('data-theme', 'dark');
+    })();
+  </script>
 </head>
+
 
 <body>
   <div class="page">
 
     <header class="topbar">
-      <a class="brand" href="index.html">Yuepeng Hu</a>
+      <a class="brand" href="index.html">Yuepeng Hu's Homepage</a>
       <nav class="topnav" aria-label="Sections">
         <a href="index.html#about">About</a>
-        <a href="index.html#experience">Experience</a>
+        <a href="index.html#experience">Industry Exp.</a>
         <a href="index.html#education">Education</a>
         <a href="publications.html" class="active">Publications</a>
-        <a href="assets/cv.pdf" target="_blank" rel="noopener">CV</a>
+        
+        <a href="assets/cv.pdf?v=1783834702" target="_blank" rel="noopener noreferrer" title="View/Download CV">CV</a>
+        <button class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+          <svg class="sun-icon" viewBox="0 0 24 24"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18.75a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25a.75.75 0 01.75-.75zM6.166 17.834a.75.75 0 001.06 1.06l1.591-1.59a.75.75 0 10-1.06-1.061l-1.591 1.59zM4.5 12a.75.75 0 01-.75.75H1.5a.75.75 0 010-1.5h2.25a.75.75 0 01.75.75zM6.166 6.166a.75.75 0 010 1.06l-1.59 1.591a.75.75 0 11-1.061-1.06l1.59-1.591a.75.75 0 011.06 0z" /></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24"><path d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" /></svg>
+        </button>
+
       </nav>
     </header>
 
     <main class="content pub-page">
-      <p class="backlink"><a href="index.html">&larr; Back to home</a></p>
-
       <section class="section">
         <h2>Publications</h2>
         <p class="hint"><em>* denotes equal contribution &middot; my name in <strong>bold</strong>.</em></p>
 
-        <article class="pub">
-          <a class="pub-thumb" href="https://arxiv.org/abs/2509.25448" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/pubs/fingerprinting-llms.jpg" alt="" loading="lazy" width="160" height="100" /></a>
+        
+          <div class="pub-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="llm">LLMs & Agents</button>
+            <button class="filter-btn" data-filter="watermark">Watermarking</button>
+            <button class="filter-btn" data-filter="trustworthy">Trustworthy ML / Safety</button>
+          </div>
+<article class="pub pub-wrap" data-category="llm">
+          <a class="pub-thumb" href="https://arxiv.org/abs/2509.25448" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img src="assets/pubs/fingerprinting-llms.jpg" alt="" loading="lazy" width="110" height="68" /></a>
           <div class="pub-body">
-            <h3 class="pub-title"><a href="https://arxiv.org/abs/2509.25448" target="_blank" rel="noopener">Fingerprinting LLMs via Prompt Injection</a></h3>
+            <h3 class="pub-title"><a href="https://arxiv.org/abs/2509.25448" target="_blank" rel="noopener noreferrer">Fingerprinting LLMs via Prompt Injection</a> <span class="tag tag-title">ORAL</span></h3>
             <p class="pub-authors"><strong>Yuepeng Hu</strong>, Zhengyuan Jiang, Mengyuan Li, Osama Ahmed, Zhicong Huang, Cheng Hong, Neil Gong</p>
-            <p class="pub-venue">Annual Meeting of the Association for Computational Linguistics (ACL), 2026 &middot; <span class="tag">Oral</span></p>
-            <p class="pub-links"><a href="https://arxiv.org/abs/2509.25448" target="_blank" rel="noopener">arXiv</a> <a href="https://github.com/hifi-hyp/ACL-LLMPrint" target="_blank" rel="noopener">Code</a></p>
-          </div>
+            <p class="pub-venue"><strong>ACL</strong> (Annual Meeting of the Association for Computational Linguistics), 2026</p>
+            <p class="pub-links"><a href="https://arxiv.org/abs/2509.25448" target="_blank" rel="noopener noreferrer">arXiv</a> <a href="https://github.com/hifi-hyp/ACL-LLMPrint" target="_blank" rel="noopener noreferrer">Code</a>  <button class="tldr-toggle" aria-expanded="false">TL;DR <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button></p>
+              <div class="pub-desc-wrap"><div class="pub-desc-inner"><p class="pub-desc">Proposes a prompt injection technique to uniquely fingerprint and track large language models.</p></div></div>
+            </div>
         </article>
 
-        <article class="pub">
-          <a class="pub-thumb" href="https://arxiv.org/abs/2604.09024" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/pubs/leave-my-images-alone.jpg" alt="" loading="lazy" width="160" height="100" /></a>
+        <article class="pub pub-wrap" data-category="trustworthy">
+          <a class="pub-thumb" href="https://arxiv.org/abs/2604.09024" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img src="assets/pubs/leave-my-images-alone.jpg" alt="" loading="lazy" width="110" height="68" /></a>
           <div class="pub-body">
-            <h3 class="pub-title"><a href="https://arxiv.org/abs/2604.09024" target="_blank" rel="noopener">Leave My Images Alone: Preventing Multi-Modal Large Language Models from Analyzing Images via Visual Prompt Injection</a></h3>
+            <h3 class="pub-title"><a href="https://arxiv.org/abs/2604.09024" target="_blank" rel="noopener noreferrer">Leave My Images Alone: Preventing Multi-Modal Large Language Models from Analyzing Images via Visual Prompt Injection</a></h3>
             <p class="pub-authors">Zedian Shao*, Hongbin Liu*, <strong>Yuepeng Hu</strong>, Neil Gong</p>
-            <p class="pub-venue">Annual Meeting of the Association for Computational Linguistics (ACL), 2026</p>
-            <p class="pub-links"><a href="https://arxiv.org/abs/2604.09024" target="_blank" rel="noopener">arXiv</a></p>
-          </div>
+            <p class="pub-venue"><strong>ACL</strong> (Annual Meeting of the Association for Computational Linguistics), 2026</p>
+            <p class="pub-links"><a href="https://arxiv.org/abs/2604.09024" target="_blank" rel="noopener noreferrer">arXiv</a>  <button class="tldr-toggle" aria-expanded="false">TL;DR <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button></p>
+              <div class="pub-desc-wrap"><div class="pub-desc-inner"><p class="pub-desc">Introduces visual prompt injection methods to protect user images from unauthorized analysis by MLLMs.</p></div></div>
+            </div>
         </article>
 
-        <article class="pub">
-          <a class="pub-thumb" href="https://arxiv.org/abs/2404.04254" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/pubs/watermark-detection-attribution.jpg" alt="" loading="lazy" width="160" height="100" /></a>
+        <article class="pub pub-wrap" data-category="watermark">
+          <a class="pub-thumb" href="https://arxiv.org/abs/2404.04254" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img src="assets/pubs/watermark-detection-attribution.jpg" alt="" loading="lazy" width="110" height="68" /></a>
           <div class="pub-body">
-            <h3 class="pub-title"><a href="https://arxiv.org/abs/2404.04254" target="_blank" rel="noopener">Watermark-Based Detection and Attribution of AI-Generated Content</a></h3>
+            <h3 class="pub-title"><a href="https://arxiv.org/abs/2404.04254" target="_blank" rel="noopener noreferrer">Watermark-Based Detection and Attribution of AI-Generated Content</a></h3>
             <p class="pub-authors">Zhengyuan Jiang, Moyang Guo, <strong>Yuepeng Hu</strong>, Neil Gong</p>
-            <p class="pub-venue">International Conference on Learning Representations (ICLR), 2026</p>
-            <p class="pub-links"><a href="https://arxiv.org/abs/2404.04254" target="_blank" rel="noopener">arXiv</a></p>
-          </div>
+            <p class="pub-venue"><strong>ICLR</strong> (International Conference on Learning Representations), 2026</p>
+            <p class="pub-links"><a href="https://arxiv.org/abs/2404.04254" target="_blank" rel="noopener noreferrer">arXiv</a>  <button class="tldr-toggle" aria-expanded="false">TL;DR <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button></p>
+              <div class="pub-desc-wrap"><div class="pub-desc-inner"><p class="pub-desc">Explores robust watermarking strategies for effectively detecting and attributing AI-generated media.</p></div></div>
+            </div>
         </article>
 
-        <article class="pub">
-          <a class="pub-thumb" href="https://arxiv.org/abs/2503.01839" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/pubs/jailbreaking-t2i.jpg" alt="" loading="lazy" width="160" height="100" /></a>
+        <article class="pub pub-wrap" data-category="trustworthy">
+          <a class="pub-thumb" href="https://arxiv.org/abs/2503.01839" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img src="assets/pubs/jailbreaking-t2i.jpg" alt="" loading="lazy" width="110" height="68" /></a>
           <div class="pub-body">
-            <h3 class="pub-title"><a href="https://arxiv.org/abs/2503.01839" target="_blank" rel="noopener">Jailbreaking Safeguarded Text-to-Image Models via Large Language Models</a></h3>
+            <h3 class="pub-title"><a href="https://arxiv.org/abs/2503.01839" target="_blank" rel="noopener noreferrer">Jailbreaking Safeguarded Text-to-Image Models via Large Language Models</a></h3>
             <p class="pub-authors">Zhengyuan Jiang, <strong>Yuepeng Hu</strong>, Yuchen Yang, Yinzhi Cao, Neil Gong</p>
-            <p class="pub-venue">Conference of the European Chapter of the Association for Computational Linguistics (EACL), 2026</p>
-            <p class="pub-links"><a href="https://arxiv.org/abs/2503.01839" target="_blank" rel="noopener">arXiv</a></p>
-          </div>
+            <p class="pub-venue"><strong>EACL</strong> (Conference of the European Chapter of the ACL), 2026</p>
+            <p class="pub-links"><a href="https://arxiv.org/abs/2503.01839" target="_blank" rel="noopener noreferrer">arXiv</a>  <button class="tldr-toggle" aria-expanded="false">TL;DR <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button></p>
+              <div class="pub-desc-wrap"><div class="pub-desc-inner"><p class="pub-desc">Leverages LLMs to construct adversarial prompts that bypass safety filters in text-to-image generation models.</p></div></div>
+            </div>
         </article>
 
-        <article class="pub">
-          <a class="pub-thumb" href="https://arxiv.org/abs/2403.15365" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/pubs/transfer-attack-watermarks.jpg" alt="" loading="lazy" width="160" height="100" /></a>
+        <article class="pub pub-wrap" data-category="watermark">
+          <a class="pub-thumb" href="https://arxiv.org/abs/2403.15365" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img src="assets/pubs/transfer-attack-watermarks.jpg" alt="" loading="lazy" width="110" height="68" /></a>
           <div class="pub-body">
-            <h3 class="pub-title"><a href="https://arxiv.org/abs/2403.15365" target="_blank" rel="noopener">A Transfer Attack to Image Watermarks</a></h3>
+            <h3 class="pub-title"><a href="https://arxiv.org/abs/2403.15365" target="_blank" rel="noopener noreferrer">A Transfer Attack to Image Watermarks</a></h3>
             <p class="pub-authors"><strong>Yuepeng Hu</strong>, Zhengyuan Jiang, Moyang Guo, Neil Gong</p>
-            <p class="pub-venue">International Conference on Learning Representations (ICLR), 2025</p>
-            <p class="pub-links"><a href="https://arxiv.org/abs/2403.15365" target="_blank" rel="noopener">arXiv</a> <a href="https://github.com/hifi-hyp/Watermark-Transfer-Attack" target="_blank" rel="noopener">Code</a></p>
-          </div>
+            <p class="pub-venue"><strong>ICLR</strong> (International Conference on Learning Representations), 2025</p>
+            <p class="pub-links"><a href="https://arxiv.org/abs/2403.15365" target="_blank" rel="noopener noreferrer">arXiv</a> <a href="https://github.com/hifi-hyp/Watermark-Transfer-Attack" target="_blank" rel="noopener noreferrer">Code</a>  <button class="tldr-toggle" aria-expanded="false">TL;DR <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button></p>
+              <div class="pub-desc-wrap"><div class="pub-desc-inner"><p class="pub-desc">Demonstrates cross-model transferability of attacks against image watermarks, highlighting fundamental robustness issues.</p></div></div>
+            </div>
         </article>
 
-        <article class="pub">
-          <a class="pub-thumb" href="https://doi.org/10.1109/TDSC.2025.3560239" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/pubs/periodic-recovery.svg" alt="" loading="lazy" width="160" height="100" /></a>
-          <div class="pub-body">
-            <h3 class="pub-title"><a href="https://doi.org/10.1109/TDSC.2025.3560239" target="_blank" rel="noopener">Periodic Recovery from Poisoning Attacks in Machine Learning</a></h3>
+        <article class="pub pub-wrap" data-category="trustworthy">
+          <a class="pub-thumb" href="https://doi.org/10.1109/TDSC.2025.3560239" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img src="assets/pubs/periodic-recovery.png?v=5" alt="" loading="lazy" width="110" height="68" /></a>
+            <div class="pub-body">
+            <h3 class="pub-title"><a href="https://doi.org/10.1109/TDSC.2025.3560239" target="_blank" rel="noopener noreferrer">Periodic Recovery from Poisoning Attacks in Machine Learning</a></h3>
             <p class="pub-authors"><strong>Yuepeng Hu</strong>, Minghong Fang, Yuqi Jia, Hongbin Liu, Neil Gong</p>
-            <p class="pub-venue">IEEE Transactions on Dependable and Secure Computing (TDSC), 2025</p>
-            <p class="pub-links"><a href="https://doi.org/10.1109/TDSC.2025.3560239" target="_blank" rel="noopener">IEEE</a> <a href="https://github.com/hifi-hyp/PeriRecover" target="_blank" rel="noopener">Code</a></p>
-          </div>
+            <p class="pub-venue"><strong>IEEE TDSC</strong> (IEEE Transactions on Dependable and Secure Computing), 2025</p>
+            <p class="pub-links"><a href="https://doi.org/10.1109/TDSC.2025.3560239" target="_blank" rel="noopener noreferrer">IEEE</a> <a href="https://github.com/hifi-hyp/PeriRecover" target="_blank" rel="noopener noreferrer">Code</a>  <button class="tldr-toggle" aria-expanded="false">TL;DR <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button></p>
+              <div class="pub-desc-wrap"><div class="pub-desc-inner"><p class="pub-desc">Proposes a defensive mechanism that periodically recovers ML models to mitigate the impact of data poisoning.</p></div></div>
+            </div>
         </article>
 
-        <article class="pub">
-          <a class="pub-thumb" href="https://arxiv.org/abs/2505.11717" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/pubs/webinject.jpg" alt="" loading="lazy" width="160" height="100" /></a>
+        <article class="pub pub-wrap" data-category="llm">
+          <a class="pub-thumb" href="https://arxiv.org/abs/2505.11717" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img src="assets/pubs/webinject.jpg" alt="" loading="lazy" width="110" height="68" /></a>
           <div class="pub-body">
-            <h3 class="pub-title"><a href="https://arxiv.org/abs/2505.11717" target="_blank" rel="noopener">WebInject: Prompt Injection Attack to Web Agents</a></h3>
+            <h3 class="pub-title"><a href="https://arxiv.org/abs/2505.11717" target="_blank" rel="noopener noreferrer">WebInject: Prompt Injection Attack to Web Agents</a></h3>
             <p class="pub-authors">Xilong Wang, John Bloch, Zedian Shao, <strong>Yuepeng Hu</strong>, Shuyan Zhou, Neil Gong</p>
-            <p class="pub-venue">Empirical Methods in Natural Language Processing (EMNLP Main), 2025</p>
-            <p class="pub-links"><a href="https://arxiv.org/abs/2505.11717" target="_blank" rel="noopener">arXiv</a></p>
-          </div>
+            <p class="pub-venue"><strong>EMNLP</strong> (Empirical Methods in Natural Language Processing), 2025</p>
+            <p class="pub-links"><a href="https://arxiv.org/abs/2505.11717" target="_blank" rel="noopener noreferrer">arXiv</a>  <button class="tldr-toggle" aria-expanded="false">TL;DR <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button></p>
+              <div class="pub-desc-wrap"><div class="pub-desc-inner"><p class="pub-desc">Exposes prompt injection vulnerabilities in web-browsing agents navigating untrusted environments.</p></div></div>
+            </div>
         </article>
 
-        <article class="pub">
-          <a class="pub-thumb" href="https://arxiv.org/abs/2407.04086" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/pubs/certifiably-robust-watermark.jpg" alt="" loading="lazy" width="160" height="100" /></a>
+        <article class="pub pub-wrap" data-category="watermark">
+          <a class="pub-thumb" href="https://arxiv.org/abs/2407.04086" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img src="assets/pubs/certifiably-robust-watermark.jpg" alt="" loading="lazy" width="110" height="68" /></a>
           <div class="pub-body">
-            <h3 class="pub-title"><a href="https://arxiv.org/abs/2407.04086" target="_blank" rel="noopener">Certifiably Robust Image Watermark</a></h3>
+            <h3 class="pub-title"><a href="https://arxiv.org/abs/2407.04086" target="_blank" rel="noopener noreferrer">Certifiably Robust Image Watermark</a></h3>
             <p class="pub-authors">Zhengyuan Jiang, Moyang Guo, <strong>Yuepeng Hu</strong>, Neil Gong</p>
-            <p class="pub-venue">European Conference on Computer Vision (ECCV), 2024</p>
-            <p class="pub-links"><a href="https://arxiv.org/abs/2407.04086" target="_blank" rel="noopener">arXiv</a> <a href="https://github.com/zhengyuan-jiang/Watermark-Library" target="_blank" rel="noopener">Code</a></p>
-          </div>
+            <p class="pub-venue"><strong>ECCV</strong> (European Conference on Computer Vision), 2024</p>
+            <p class="pub-links"><a href="https://arxiv.org/abs/2407.04086" target="_blank" rel="noopener noreferrer">arXiv</a> <a href="https://github.com/zhengyuan-jiang/Watermark-Library" target="_blank" rel="noopener noreferrer">Code</a>  <button class="tldr-toggle" aria-expanded="false">TL;DR <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button></p>
+              <div class="pub-desc-wrap"><div class="pub-desc-inner"><p class="pub-desc">Develops a theoretical framework and practical approach for applying provably robust watermarks to images.</p></div></div>
+            </div>
         </article>
 
-        <article class="pub">
-          <a class="pub-thumb" href="https://arxiv.org/abs/2303.14601" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/pubs/pore.jpg" alt="" loading="lazy" width="160" height="100" /></a>
+        <article class="pub pub-wrap" data-category="trustworthy">
+          <a class="pub-thumb" href="https://arxiv.org/abs/2303.14601" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img src="assets/pubs/pore.jpg" alt="" loading="lazy" width="110" height="68" /></a>
           <div class="pub-body">
-            <h3 class="pub-title"><a href="https://arxiv.org/abs/2303.14601" target="_blank" rel="noopener">PORE: Provably Robust Recommender Systems Against Data Poisoning Attacks</a></h3>
+            <h3 class="pub-title"><a href="https://arxiv.org/abs/2303.14601" target="_blank" rel="noopener noreferrer">PORE: Provably Robust Recommender Systems Against Data Poisoning Attacks</a></h3>
             <p class="pub-authors">Jinyuan Jia, Yupei Liu, <strong>Yuepeng Hu</strong>, Neil Gong</p>
-            <p class="pub-venue">USENIX Security Symposium, 2023</p>
-            <p class="pub-links"><a href="https://arxiv.org/abs/2303.14601" target="_blank" rel="noopener">arXiv</a></p>
-          </div>
+            <p class="pub-venue"><strong>USENIX Security Symposium</strong>, 2023</p>
+            <p class="pub-links"><a href="https://arxiv.org/abs/2303.14601" target="_blank" rel="noopener noreferrer">arXiv</a>  <button class="tldr-toggle" aria-expanded="false">TL;DR <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button></p>
+              <div class="pub-desc-wrap"><div class="pub-desc-inner"><p class="pub-desc">Introduces a recommender system with formal robustness guarantees against data poisoning and manipulation.</p></div></div>
+            </div>
         </article>
 
-        <article class="pub">
-          <span class="pub-thumb"><img src="assets/pubs/cardiac-mri.svg" alt="" loading="lazy" width="160" height="100" /></span>
-          <div class="pub-body">
-            <h3 class="pub-title">Screening and Diagnosis of Cardiovascular Disease Using AI-Enabled Cardiac MRI</h3>
+        <article class="pub pub-wrap" data-category="other">
+          <span class="pub-thumb"><img src="assets/pubs/cardiac-mri.png?v=5" alt="" loading="lazy" width="110" height="68" /></span>
+            <div class="pub-body">
+            <h3 class="pub-title"><a href="https://www.nature.com/articles/s41591-024-02971-2" target="_blank" rel="noopener noreferrer">Screening and Diagnosis of Cardiovascular Disease Using AI-Enabled Cardiac MRI</a></h3>
             <p class="pub-authors">Yan-Ran Wang, Kai Yang, Yi Wen*, Pengcheng Wang*, <strong>Yuepeng Hu*</strong>, et al.</p>
-            <p class="pub-venue">Nature Medicine</p>
-          </div>
+            <p class="pub-venue"><strong>Nature Medicine</strong></p>
+              <p class="pub-links"><a href="https://www.nature.com/articles/s41591-024-02971-2" target="_blank" rel="noopener noreferrer">Nature</a> <button class="tldr-toggle" aria-expanded="false">TL;DR <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button></p>
+              <div class="pub-desc-wrap"><div class="pub-desc-inner"><p class="pub-desc">Applies deep learning techniques to cardiac MRI for automated and accurate cardiovascular disease diagnosis.</p></div></div>
+            </div>
         </article>
       </section>
 
       <section class="section">
         <h2>Preprints</h2>
 
-        <article class="pub">
-          <a class="pub-thumb" href="https://arxiv.org/abs/2602.12194" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/pubs/maltool.jpg" alt="" loading="lazy" width="160" height="100" /></a>
+        <article class="pub pub-wrap" data-category="llm">
+          <a class="pub-thumb" href="https://arxiv.org/abs/2602.12194" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img src="assets/pubs/maltool.jpg" alt="" loading="lazy" width="110" height="68" /></a>
           <div class="pub-body">
-            <h3 class="pub-title"><a href="https://arxiv.org/abs/2602.12194" target="_blank" rel="noopener">MalTool: Malicious Tool Attacks on LLM Agents</a></h3>
+            <h3 class="pub-title"><a href="https://arxiv.org/abs/2602.12194" target="_blank" rel="noopener noreferrer">MalTool: Malicious Tool Attacks on LLM Agents</a></h3>
             <p class="pub-authors"><strong>Yuepeng Hu</strong>, Yuqi Jia, Mengyuan Li, Dawn Song, Neil Gong</p>
-            <p class="pub-links"><a href="https://arxiv.org/abs/2602.12194" target="_blank" rel="noopener">arXiv</a></p>
-          </div>
+            <p class="pub-links"><a href="https://arxiv.org/abs/2602.12194" target="_blank" rel="noopener noreferrer">arXiv</a>  <button class="tldr-toggle" aria-expanded="false">TL;DR <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button></p>
+              <div class="pub-desc-wrap"><div class="pub-desc-inner"><p class="pub-desc">Investigates vulnerabilities in LLM agents when interacting with external tools, demonstrating malicious tool-based attacks.</p></div></div>
+            </div>
         </article>
 
-        <article class="pub">
-          <span class="pub-thumb"><img src="assets/pubs/log-to-leak.svg" alt="" loading="lazy" width="160" height="100" /></span>
-          <div class="pub-body">
+        <article class="pub pub-wrap" data-category="llm">
+          <span class="pub-thumb"><img src="assets/pubs/log-to-leak.svg" alt="" loading="lazy" width="110" height="68" /></span>
+            <div class="pub-body">
             <h3 class="pub-title">Log-To-Leak: Prompt Injection Attacks on Tool-Using LLM Agents via Model Context Protocol</h3>
-            <p class="pub-authors"><strong>Yuepeng Hu*</strong>, Chongyu Fan*, Sirat Samyoun, Jian Du</p>
-          </div>
+            <p class="pub-authors"><strong>Yuepeng Hu*</strong>, Chongyu Fan*, Sirat Samyoun, Jian Du  <button class="tldr-toggle" aria-expanded="false">TL;DR <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button></p>
+              <div class="pub-desc-wrap"><div class="pub-desc-inner"><p class="pub-desc">Highlights security risks in the Model Context Protocol where tool logs can be exploited for prompt injection and data leakage.</p></div></div>
+            </div>
         </article>
 
-        <article class="pub">
-          <a class="pub-thumb" href="https://arxiv.org/abs/2502.20623" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/pubs/safetext.svg" alt="" loading="lazy" width="160" height="100" /></a>
-          <div class="pub-body">
-            <h3 class="pub-title"><a href="https://arxiv.org/abs/2502.20623" target="_blank" rel="noopener">SafeText: Safe Text-to-Image Models via Aligning the Text Encoder</a></h3>
+        <article class="pub pub-wrap" data-category="trustworthy">
+          <a class="pub-thumb" href="https://arxiv.org/abs/2502.20623" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img src="assets/pubs/safetext.png?v=5" alt="" loading="lazy" width="110" height="68" /></a>
+            <div class="pub-body">
+            <h3 class="pub-title"><a href="https://arxiv.org/abs/2502.20623" target="_blank" rel="noopener noreferrer">SafeText: Safe Text-to-Image Models via Aligning the Text Encoder</a></h3>
             <p class="pub-authors"><strong>Yuepeng Hu</strong>, Zhengyuan Jiang, Neil Gong</p>
-            <p class="pub-links"><a href="https://arxiv.org/abs/2502.20623" target="_blank" rel="noopener">arXiv</a></p>
-          </div>
+            <p class="pub-links"><a href="https://arxiv.org/abs/2502.20623" target="_blank" rel="noopener noreferrer">arXiv</a>  <button class="tldr-toggle" aria-expanded="false">TL;DR <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button></p>
+              <div class="pub-desc-wrap"><div class="pub-desc-inner"><p class="pub-desc">Aligns the text encoder to inherently reject unsafe prompts, improving the safety of text-to-image generation.</p></div></div>
+            </div>
         </article>
 
-        <article class="pub">
-          <a class="pub-thumb" href="https://arxiv.org/abs/2405.07145" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/pubs/stable-signature-unstable.jpg" alt="" loading="lazy" width="160" height="100" /></a>
+        <article class="pub pub-wrap" data-category="watermark">
+          <a class="pub-thumb" href="https://arxiv.org/abs/2405.07145" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img src="assets/pubs/stable-signature-unstable.jpg" alt="" loading="lazy" width="110" height="68" /></a>
           <div class="pub-body">
-            <h3 class="pub-title"><a href="https://arxiv.org/abs/2405.07145" target="_blank" rel="noopener">Stable Signature is Unstable: Removing Image Watermarks from Diffusion Models</a></h3>
+            <h3 class="pub-title"><a href="https://arxiv.org/abs/2405.07145" target="_blank" rel="noopener noreferrer">Stable Signature is Unstable: Removing Image Watermarks from Diffusion Models</a></h3>
             <p class="pub-authors"><strong>Yuepeng Hu</strong>, Zhengyuan Jiang, Moyang Guo, Neil Gong</p>
-            <p class="pub-links"><a href="https://arxiv.org/abs/2405.07145" target="_blank" rel="noopener">arXiv</a></p>
-          </div>
+            <p class="pub-links"><a href="https://arxiv.org/abs/2405.07145" target="_blank" rel="noopener noreferrer">arXiv</a>  <button class="tldr-toggle" aria-expanded="false">TL;DR <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button></p>
+              <div class="pub-desc-wrap"><div class="pub-desc-inner"><p class="pub-desc">Analyzes the vulnerabilities of diffusion model watermarks, showing how they can be effectively removed.</p></div></div>
+            </div>
         </article>
       </section>
 
@@ -196,5 +232,182 @@
   </div>
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+            setTimeout(() => {
+              entry.target.classList.remove('reveal-init', 'reveal-animate', 'reveal-visible');
+            }, 800);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+      
+      
+      
+      // Theme Toggle Logic
+      const themeToggle = document.querySelector('.theme-toggle');
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          const currentTheme = document.documentElement.getAttribute('data-theme');
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+        });
+      }
+
+      // Topbar sticky scroll effect
+      const topbar = document.querySelector('.topbar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) topbar.classList.add('scrolled');
+        else topbar.classList.remove('scrolled');
+      });
+
+      
+      // TL;DR Toggle Logic
+      document.querySelectorAll('.tldr-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const wrap = btn.parentElement.nextElementSibling;
+          const isExpanded = wrap.classList.contains('expanded');
+          
+          if (isExpanded) {
+            wrap.classList.remove('expanded');
+            btn.classList.remove('expanded');
+            btn.setAttribute('aria-expanded', 'false');
+          } else {
+            wrap.classList.add('expanded');
+            btn.classList.add('expanded');
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+
+      // Publication Filtering
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const pubs = document.querySelectorAll('.pub-wrap');
+      
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.getAttribute('data-filter');
+          
+          pubs.forEach(pub => {
+            // Hardcode height for smooth transition if needed, or let CSS flex handle it.
+            // CSS scale and opacity handles the visual, height:0 handles the layout.
+            if (filter === 'all' || pub.getAttribute('data-category') === filter) {
+              pub.classList.remove('hidden-filter');
+              // Ensure intersection observer doesn't hide it
+              pub.classList.remove('reveal-init', 'reveal-animate');
+              pub.classList.add('reveal-visible');
+            } else {
+              pub.classList.add('hidden-filter');
+            }
+          });
+        });
+      });
+
+      const selectors = '.section, .pub, .interests, .card';
+      document.querySelectorAll(selectors).forEach(el => {
+        el.classList.add('reveal-init', 'reveal-animate');
+        observer.observe(el);
+      });
+    });
+  </script>
+
+  
+  <!-- Particle Background Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const canvas = document.createElement('canvas');
+      canvas.id = 'tech-particles';
+      document.body.insertBefore(canvas, document.body.firstChild);
+      
+      const ctx = canvas.getContext('2d');
+      let width, height, particles = [];
+
+      function init() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+      
+      class Particle {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.vx = (Math.random() - 0.5) * 0.5;
+          this.vy = (Math.random() - 0.5) * 0.5;
+          this.radius = Math.random() * 1.5 + 0.5;
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          if (this.x < 0 || this.x > width) this.vx = -this.vx;
+          if (this.y < 0 || this.y > height) this.vy = -this.vy;
+        }
+        draw() {
+          const style = getComputedStyle(document.body);
+          const rawAccent = style.getPropertyValue('--accent-rgb').trim() || '37, 99, 235';
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${rawAccent}, 0.5)`;
+          ctx.fill();
+        }
+      }
+
+      function createParticles() {
+        particles = [];
+        const isMobile = window.innerWidth < 768;
+        const numParticles = isMobile ? Math.floor(window.innerWidth / 30) : Math.min(Math.floor(window.innerWidth / 15), 100);
+        for (let i = 0; i < numParticles; i++) particles.push(new Particle());
+      }
+
+      function animate() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        
+        ctx.clearRect(0, 0, width, height);
+        const style = getComputedStyle(document.body);
+        const rawAccent = style.getPropertyValue('--accent-rgb').trim() || '37, 99, 235';
+        
+        particles.forEach(p => {
+          p.update();
+          p.draw();
+        });
+        
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 120) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(${rawAccent}, ${0.15 * (1 - dist/120)})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+
+      init();
+      createParticles();
+      animate();
+
+      window.addEventListener('resize', () => {
+        init();
+        createParticles();
+      });
+    });
+  </script>
+
+
 </body>
+
 </html>
