@@ -139,6 +139,7 @@
           <ul>
             <li>AI Security</li>
             <li>LLM Agents &amp; Prompt Injection</li>
+            <li>Reward Hacking &amp; Multi-Agent Safety</li>
             <li>Watermarking of AI-Generated Content</li>
             <li>Generative AI Safety</li>
           </ul>
@@ -160,7 +161,7 @@
           </p>
           <p>
             I am currently a Research Scientist Intern at <strong>Meta Superintelligence Labs</strong>,
-            where I study reward hacking in RL-trained coding agents. Previously, I was a Research Scientist Intern at <strong>TikTok Privacy Innovation Labs</strong>. I received my B.S. in Data Science from the <strong>University of Science
+            where I study reward hacking in RL-trained coding agents and its propagation across multi-agent systems (<a href="https://arxiv.org/abs/2610.12822v2" target="_blank" rel="noopener noreferrer">latest paper</a>). Previously, I was a Research Scientist Intern at <strong>TikTok Privacy Innovation Labs</strong>. I received my B.S. in Data Science from the <strong>University of Science
             and Technology of China (USTC)</strong>.
           </p>
           <p>
@@ -215,14 +216,17 @@
         <section id="news" class="section">
           <h2>News</h2>
           <ul class="news">
+            <li><time datetime="2026-10">2026.10</time><span>Our <a href="https://arxiv.org/abs/2610.12822v2" target="_blank" rel="noopener noreferrer">latest work</a> at <strong>Meta Superintelligence Labs</strong> is now on arXiv. We show how reward hacking can spread across multi-agent coding systems.</span></li>
+            <li><time datetime="2026-09">2026.09</time><span>Our paper &ldquo;<a href="https://arxiv.org/abs/2610.00650" target="_blank" rel="noopener noreferrer">RuleEvolve</a>&rdquo; accepted to <strong>NeurIPS 2026</strong>.</span></li>
+            <li><time datetime="2026-08">2026.08</time><span>&ldquo;<a href="https://arxiv.org/abs/2610.36108v1" target="_blank" rel="noopener noreferrer">Log-To-Leak</a>&rdquo;, based on my internship research at <strong>TikTok</strong>, accepted to <strong>AGENT-SEC (ACM CCS 2026 Workshop)</strong>.</span></li>
             <li><time>2026.05</time><span>Started as a Research Scientist Intern at <strong>Meta Superintelligence Labs</strong> (Bellevue, WA).</span></li>
-            <li><time>2026.03</time><span>Two papers accepted to <strong>ACL 2026</strong>: &ldquo;Fingerprinting LLMs via Prompt Injection&rdquo; (<strong>Oral</strong>) and &ldquo;Leave My Images Alone&rdquo;.</span></li>
-            <li><time>2026.01</time><span>&ldquo;Watermark-Based Detection and Attribution of AI-Generated Content&rdquo; accepted to <strong>ICLR 2026</strong>.</span></li>
-            <li><time>2025.12</time><span>&ldquo;Jailbreaking Safeguarded Text-to-Image Models via LLMs&rdquo; accepted to <strong>EACL 2026</strong> (Findings).</span></li>
-            <li><time>2025.08</time><span>&ldquo;WebInject: Prompt Injection Attack to Web Agents&rdquo; accepted to <strong>EMNLP 2025</strong> (Main).</span></li>
+            <li><time>2026.03</time><span>Two papers accepted to <strong>ACL 2026</strong>: &ldquo;<a href="https://arxiv.org/abs/2509.25448" target="_blank" rel="noopener noreferrer">LLMPrint</a>&rdquo; (<strong>Oral</strong>) and &ldquo;<a href="https://arxiv.org/abs/2604.09024" target="_blank" rel="noopener noreferrer">Leave My Images Alone</a>&rdquo;.</span></li>
+            <li><time>2026.01</time><span>&ldquo;<a href="https://arxiv.org/abs/2404.04254" target="_blank" rel="noopener noreferrer">Watermark-Based Detection and Attribution of AI-Generated Content</a>&rdquo; accepted to <strong>ICLR 2026</strong>.</span></li>
+            <li><time>2025.12</time><span>&ldquo;<a href="https://arxiv.org/abs/2503.01839" target="_blank" rel="noopener noreferrer">Jailbreaking Safeguarded Text-to-Image Models via LLMs</a>&rdquo; accepted to <strong>EACL 2026</strong> (Findings).</span></li>
+            <li><time>2025.08</time><span>&ldquo;<a href="https://arxiv.org/abs/2505.11717" target="_blank" rel="noopener noreferrer">WebInject: Prompt Injection Attack to Web Agents</a>&rdquo; accepted to <strong>EMNLP 2025</strong> (Main).</span></li>
             <li><time>2025.05</time><span>Started as a Research Scientist Intern at <strong>TikTok Privacy Innovation Labs</strong> (San Jose, CA).</span></li>
-            <li><time>2025.03</time><span>&ldquo;Periodic Recovery from Poisoning Attacks in Machine Learning&rdquo; accepted to <strong>IEEE TDSC</strong> (IEEE Transactions on Dependable and Secure Computing).</span></li>
-            <li><time>2025.01</time><span>&ldquo;A Transfer Attack to Image Watermarks&rdquo; accepted to <strong>ICLR 2025</strong>.</span></li>
+            <li><time>2025.03</time><span>&ldquo;<a href="https://doi.org/10.1109/TDSC.2025.3560239" target="_blank" rel="noopener noreferrer">Periodic Recovery from Poisoning Attacks in Machine Learning</a>&rdquo; accepted to <strong>IEEE TDSC</strong> (IEEE Transactions on Dependable and Secure Computing).</span></li>
+            <li><time>2025.01</time><span>&ldquo;<a href="https://arxiv.org/abs/2403.15365" target="_blank" rel="noopener noreferrer">A Transfer Attack to Image Watermarks</a>&rdquo; accepted to <strong>ICLR 2025</strong>.</span></li>
           </ul>
         </section>
 
@@ -236,7 +240,18 @@
 
           
           
-<article class="pub pub-wrap" data-category="llm">
+<article class="pub pub-wrap" data-category="llm" id="reward-hacking">
+            <a class="pub-thumb" href="https://arxiv.org/abs/2610.12822v2" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img src="assets/pubs/reward-hacking.png" alt="" loading="lazy" width="110" height="68" /></a>
+            <div class="pub-body">
+              <h3 class="pub-title"><a href="https://arxiv.org/abs/2610.12822v2" target="_blank" rel="noopener noreferrer">Reward Hacking as a Transmissible Strategy in Multi-Agent Coding Systems</a></h3>
+              <p class="pub-authors"><strong>Yuepeng Hu</strong>, Pegah Ghahremani, Reza Aghajani, Mahesh Pasupuleti, Himaghna Bhattacharjee</p>
+              <p class="pub-venue"><strong>Preprint</strong>, 2026 <span class="tag">Work done at Meta</span></p>
+              <p class="pub-links"><a href="https://arxiv.org/abs/2610.12822v2" target="_blank" rel="noopener noreferrer">arXiv</a> <a href="https://arxiv.org/pdf/2610.12822v2" target="_blank" rel="noopener noreferrer">PDF</a> <button class="tldr-toggle" aria-expanded="false">TL;DR <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button></p>
+              <div class="pub-desc-wrap"><div class="pub-desc-inner"><p class="pub-desc">Shows that reward hacking learned by RL-trained coding agents can spread through code, shared memory, and natural-language plans, affecting other agents and system coordination. Code review by the coder or a separate verifier reduces delivered hacks.</p></div></div>
+            </div>
+          </article>
+
+          <article class="pub pub-wrap" data-category="llm">
             <a class="pub-thumb" href="https://arxiv.org/abs/2509.25448" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img src="assets/pubs/fingerprinting-llms.jpg" alt="" loading="lazy" width="110" height="68" /></a>
             <div class="pub-body">
               <h3 class="pub-title"><a href="https://arxiv.org/abs/2509.25448" target="_blank" rel="noopener noreferrer">Fingerprinting LLMs via Prompt Injection</a> <span class="tag tag-title">ORAL</span></h3>

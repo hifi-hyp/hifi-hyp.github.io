@@ -70,7 +70,18 @@
             <button class="filter-btn" data-filter="watermark">Watermarking</button>
             <button class="filter-btn" data-filter="trustworthy">Trustworthy ML / Safety</button>
           </div>
-<article class="pub pub-wrap" data-category="llm">
+<article class="pub pub-wrap" data-category="llm" id="ruleevolve">
+          <a class="pub-thumb" href="https://arxiv.org/abs/2610.00650" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img src="assets/pubs/ruleevolve.png" alt="" loading="lazy" width="110" height="68" /></a>
+          <div class="pub-body">
+            <h3 class="pub-title"><a href="https://arxiv.org/abs/2610.00650" target="_blank" rel="noopener noreferrer">Self-Evolving Coding Rules for AI Coding Agents</a></h3>
+            <p class="pub-authors">Zhengyuan Jiang, Reachal Wang, <strong>Yuepeng Hu</strong>, Yupu Wang, Yuqi Jia, Neil Zhenqiang Gong</p>
+            <p class="pub-venue"><strong>NeurIPS</strong> (Conference on Neural Information Processing Systems), 2026</p>
+            <p class="pub-links"><a href="https://arxiv.org/abs/2610.00650" target="_blank" rel="noopener noreferrer">arXiv</a> <a href="https://arxiv.org/pdf/2610.00650" target="_blank" rel="noopener noreferrer">PDF</a> <button class="tldr-toggle" aria-expanded="false">TL;DR <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button></p>
+            <div class="pub-desc-wrap"><div class="pub-desc-inner"><p class="pub-desc">Introduces RuleEvolve, which automatically refines coding rules through iterative mutation and evaluation to improve code correctness, conciseness, and generation efficiency.</p></div></div>
+          </div>
+        </article>
+
+        <article class="pub pub-wrap" data-category="llm">
           <a class="pub-thumb" href="https://arxiv.org/abs/2509.25448" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img src="assets/pubs/fingerprinting-llms.jpg" alt="" loading="lazy" width="110" height="68" /></a>
           <div class="pub-body">
             <h3 class="pub-title"><a href="https://arxiv.org/abs/2509.25448" target="_blank" rel="noopener noreferrer">Fingerprinting LLMs via Prompt Injection</a> <span class="tag tag-title">ORAL</span></h3>
@@ -112,6 +123,17 @@
             <p class="pub-links"><a href="https://arxiv.org/abs/2503.01839" target="_blank" rel="noopener noreferrer">arXiv</a>  <button class="tldr-toggle" aria-expanded="false">TL;DR <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button></p>
               <div class="pub-desc-wrap"><div class="pub-desc-inner"><p class="pub-desc">Leverages LLMs to construct adversarial prompts that bypass safety filters in text-to-image generation models.</p></div></div>
             </div>
+        </article>
+
+        <article class="pub pub-wrap" data-category="llm" id="log-to-leak">
+          <a class="pub-thumb" href="https://arxiv.org/abs/2610.36108v1" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img src="assets/pubs/log-to-leak.png" alt="" loading="lazy" width="110" height="68" /></a>
+          <div class="pub-body">
+            <h3 class="pub-title"><a href="https://arxiv.org/abs/2610.36108v1" target="_blank" rel="noopener noreferrer">Log-To-Leak: Prompt Injection Attacks on Tool-Using LLM Agents via the Model Context Protocol</a></h3>
+            <p class="pub-authors"><strong>Yuepeng Hu*</strong>, Chongyu Fan*, Sirat Samyoun, Jian Du</p>
+            <p class="pub-venue"><strong>AGENT-SEC</strong> (ACM CCS Workshop), 2026 <span class="tag">Work done at TikTok</span></p>
+            <p class="pub-links"><a href="https://arxiv.org/abs/2610.36108v1" target="_blank" rel="noopener noreferrer">arXiv</a> <a href="https://arxiv.org/pdf/2610.36108v1" target="_blank" rel="noopener noreferrer">PDF</a> <button class="tldr-toggle" aria-expanded="false">TL;DR <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button></p>
+            <div class="pub-desc-wrap"><div class="pub-desc-inner"><p class="pub-desc">Shows how malicious MCP tool descriptions can induce an extra logging call that leaks interaction data after legitimate tool use, even when the requested task succeeds.</p></div></div>
+          </div>
         </article>
 
         <article class="pub pub-wrap" data-category="watermark">
@@ -184,6 +206,17 @@
       <section class="section">
         <h2>Preprints</h2>
 
+        <article class="pub pub-wrap" data-category="llm" id="reward-hacking">
+          <a class="pub-thumb" href="https://arxiv.org/abs/2610.12822v2" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img src="assets/pubs/reward-hacking.png" alt="" loading="lazy" width="110" height="68" /></a>
+          <div class="pub-body">
+            <h3 class="pub-title"><a href="https://arxiv.org/abs/2610.12822v2" target="_blank" rel="noopener noreferrer">Reward Hacking as a Transmissible Strategy in Multi-Agent Coding Systems</a></h3>
+            <p class="pub-authors"><strong>Yuepeng Hu</strong>, Pegah Ghahremani, Reza Aghajani, Mahesh Pasupuleti, Himaghna Bhattacharjee</p>
+            <p class="pub-venue"><strong>Preprint</strong>, 2026 <span class="tag">Work done at Meta</span></p>
+            <p class="pub-links"><a href="https://arxiv.org/abs/2610.12822v2" target="_blank" rel="noopener noreferrer">arXiv</a> <a href="https://arxiv.org/pdf/2610.12822v2" target="_blank" rel="noopener noreferrer">PDF</a> <button class="tldr-toggle" aria-expanded="false">TL;DR <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button></p>
+            <div class="pub-desc-wrap"><div class="pub-desc-inner"><p class="pub-desc">Shows that reward hacking learned by RL-trained coding agents can spread through code, shared memory, and natural-language plans, affecting other agents and system coordination. Code review by the coder or a separate verifier reduces delivered hacks.</p></div></div>
+          </div>
+        </article>
+
         <article class="pub pub-wrap" data-category="llm">
           <a class="pub-thumb" href="https://arxiv.org/abs/2602.12194" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img src="assets/pubs/maltool.jpg" alt="" loading="lazy" width="110" height="68" /></a>
           <div class="pub-body">
@@ -191,15 +224,6 @@
             <p class="pub-authors"><strong>Yuepeng Hu</strong>, Yuqi Jia, Mengyuan Li, Dawn Song, Neil Gong</p>
             <p class="pub-links"><a href="https://arxiv.org/abs/2602.12194" target="_blank" rel="noopener noreferrer">arXiv</a>  <button class="tldr-toggle" aria-expanded="false">TL;DR <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button></p>
               <div class="pub-desc-wrap"><div class="pub-desc-inner"><p class="pub-desc">Investigates vulnerabilities in LLM agents when interacting with external tools, demonstrating malicious tool-based attacks.</p></div></div>
-            </div>
-        </article>
-
-        <article class="pub pub-wrap" data-category="llm">
-          <span class="pub-thumb"><img src="assets/pubs/log-to-leak.svg" alt="" loading="lazy" width="110" height="68" /></span>
-            <div class="pub-body">
-            <h3 class="pub-title">Log-To-Leak: Prompt Injection Attacks on Tool-Using LLM Agents via Model Context Protocol</h3>
-            <p class="pub-authors"><strong>Yuepeng Hu*</strong>, Chongyu Fan*, Sirat Samyoun, Jian Du  <button class="tldr-toggle" aria-expanded="false">TL;DR <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button></p>
-              <div class="pub-desc-wrap"><div class="pub-desc-inner"><p class="pub-desc">Highlights security risks in the Model Context Protocol where tool logs can be exploited for prompt injection and data leakage.</p></div></div>
             </div>
         </article>
 
